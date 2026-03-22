@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Downloader</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Subtle background glow -->
+    <div class="bg-glow"></div>
+
+    <div class="panel">
+        <!-- Header -->
+        <header id="panel-header">
+            <div class="header-row">
+                <div class="header-icon">
+                    <img src="assets/KIREL.png" alt="Logo" width="120" height="40" style="object-fit: contain;">
+                </div>
+                <div class="header-text">
+                    <h1 id="panel-title">SIGMA Downloader</h1>
+                    <span class="subtitle" id="panel-subtitle">by kirel</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Divider -->
+        <div class="divider"></div>
+
+        <!-- URL Input -->
+        <div class="form-group" id="url-group">
+            <label for="url-input">URL</label>
+            <div class="input-wrapper">
+                <svg class="input-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                </svg>
+                <input type="text" id="url-input" placeholder="Paste video link..." spellcheck="false" autocomplete="off">
+            </div>
+        </div>
+
+        <!-- Format & Quality Selectors -->
+        <div class="selectors-row" id="selectors-row">
+            <div class="form-group selector-col">
+                <label for="format-select">Format</label>
+                <div class="select-wrapper">
+                    <select id="format-select">
+                        <option value="mp4">MP4 (Video)</option>
+                        <option value="mp3">MP3 (Audio)</option>
+                    </select>
+                    <svg class="select-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="form-group selector-col" id="quality-container">
+                <label for="quality-select">Quality</label>
+                <div class="select-wrapper">
+                    <select id="quality-select">
+                        <option value="best">Best</option>
+                        <option value="1080">1080p</option>
+                        <option value="720">720p</option>
+                        <option value="480">480p</option>
+                    </select>
+                    <svg class="select-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Button -->
+        <button id="download-btn" type="button">
+            <span class="btn-content">
+                <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                <span class="btn-label">Download</span>
+            </span>
+            <span class="btn-spinner" style="display:none;">
+                <svg width="18" height="18" viewBox="0 0 24 24" class="spinner-svg">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.5" fill="none" stroke-dasharray="50 20" stroke-linecap="round"/>
+                </svg>
+                <span class="btn-label">Downloading...</span>
+            </span>
+        </button>
+
+        <!-- Progress Area -->
+        <div id="status-area">
+            <div id="progress-bar-container">
+                <div id="progress-bar"></div>
+            </div>
+            <div id="message"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="CSInterface.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

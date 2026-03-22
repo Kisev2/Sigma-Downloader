@@ -1,0 +1,359 @@
+/* ============================================================
+   Media Downloader — CEP Panel Styles (Compact)
+   Premium dark theme, ultra-compact for small AE tabs
+   ============================================================ */
+
+:root {
+    --bg-primary:    #1e1e1e;
+    --bg-secondary:  #262626;
+    --bg-input:      #2a2a2e;
+    --bg-hover:      #333338;
+
+    --accent:        #ff0000;
+    --accent-hover:  #ff3333;
+    --accent-glow:   rgba(255, 0, 0, 0.18);
+    --accent-subtle: rgba(255, 0, 0, 0.10);
+
+    --success:       #3dd68c;
+    --error:         #f06060;
+
+    --text-primary:  #e8e8ec;
+    --text-secondary:#9e9ea8;
+    --text-muted:    #6a6a74;
+
+    --border:        rgba(255,255,255,0.06);
+    --border-focus:  rgba(255, 0, 0, 0.50);
+
+    --radius:        5px;
+    --transition:    0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --font:          'Segoe UI', -apple-system, system-ui, sans-serif;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font);
+    font-size: 12px;
+    line-height: 1.4;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    user-select: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+
+/* ---------- Background Glow ---------- */
+.bg-glow {
+    position: fixed;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160px;
+    height: 80px;
+    background: radial-gradient(ellipse at center, var(--accent-glow) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+}
+
+/* ---------- Panel ---------- */
+.panel {
+    position: relative;
+    z-index: 1;
+    padding: 10px 12px 14px;
+}
+
+/* ---------- Header ---------- */
+header { margin-bottom: 8px; }
+
+.header-row {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.header-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.header-icon img {
+    display: block;
+    object-fit: contain;
+}
+
+h1 {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+}
+
+.subtitle {
+    font-size: 9px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+/* ---------- Divider ---------- */
+.divider {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 8px;
+}
+
+/* ---------- Form ---------- */
+.form-group { margin-bottom: 8px; }
+
+label {
+    display: block;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 3px;
+    letter-spacing: 0.02em;
+}
+
+/* ---------- Input ---------- */
+.input-wrapper { position: relative; }
+
+.input-icon {
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+    transition: color var(--transition);
+}
+
+input[type="text"] {
+    width: 100%;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 7px 8px 7px 26px;
+    border-radius: var(--radius);
+    font-size: 11px;
+    font-family: var(--font);
+    outline: none;
+    transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+}
+
+input[type="text"]::placeholder { color: var(--text-muted); }
+input[type="text"]:hover { background: var(--bg-hover); border-color: rgba(255,255,255,0.1); }
+
+input[type="text"]:focus {
+    border-color: var(--border-focus);
+    background: var(--bg-hover);
+    box-shadow: 0 0 0 2px var(--accent-glow);
+}
+
+.input-wrapper:focus-within .input-icon { color: var(--accent); }
+
+/* ---------- Selectors Row ---------- */
+.selectors-row {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.selector-col {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+/* ---------- Select ---------- */
+.select-wrapper { position: relative; }
+
+select {
+    width: 100%;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 6px 22px 6px 8px;
+    border-radius: var(--radius);
+    font-size: 11px;
+    font-family: var(--font);
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+}
+
+select:hover { background: var(--bg-hover); border-color: rgba(255,255,255,0.1); }
+select:focus { border-color: var(--border-focus); box-shadow: 0 0 0 2px var(--accent-glow); }
+
+.select-chevron {
+    position: absolute;
+    top: 50%;
+    right: 7px;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+#quality-container {
+    transition: opacity var(--transition), max-height 0.25s ease;
+    overflow: hidden;
+}
+
+#quality-container.hidden {
+    opacity: 0;
+    max-height: 0;
+    margin: 0;
+    pointer-events: none;
+}
+
+#quality-container.visible {
+    opacity: 1;
+    max-height: 60px;
+}
+
+/* ---------- Download Button ---------- */
+button#download-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: var(--radius);
+    font-size: 12px;
+    font-weight: 600;
+    font-family: var(--font);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+    box-shadow: 0 2px 6px rgba(255, 0, 0, 0.25);
+}
+
+button#download-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+button#download-btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 12px rgba(255, 0, 0, 0.35);
+}
+
+button#download-btn:active:not(:disabled) {
+    transform: translateY(0) scale(0.99);
+}
+
+button#download-btn:disabled {
+    background: var(--bg-hover);
+    box-shadow: none;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.btn-content, .btn-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.btn-icon { flex-shrink: 0; }
+.btn-icon svg { width: 14px; height: 14px; }
+.btn-label { line-height: 1; }
+
+.spinner-svg { animation: spin 0.9s linear infinite; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* ---------- Status / Progress ---------- */
+#status-area { margin-top: 8px; }
+
+#progress-bar-container {
+    background: var(--bg-secondary);
+    height: 2px;
+    border-radius: 1px;
+    margin-bottom: 6px;
+    overflow: hidden;
+    display: none;
+}
+
+#progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), #cc0000);
+    width: 0%;
+    border-radius: 1px;
+    transition: width 0.35s ease;
+    position: relative;
+}
+
+#progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 20px; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3));
+    border-radius: 1px;
+}
+
+/* ---------- Messages ---------- */
+#message {
+    font-size: 10px;
+    color: var(--text-secondary);
+    text-align: center;
+    min-height: 14px;
+    transition: color var(--transition), opacity var(--transition);
+}
+
+#message.success { color: var(--success); }
+#message.error { color: var(--error); }
+#message.info { color: var(--text-secondary); }
+
+#message.fade-in { animation: fadeInUp 0.3s ease forwards; }
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(3px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Drag Overlay ---------- */
+.drag-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 0, 0, 0.06);
+    border: 2px dashed var(--accent);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    margin: 4px;
+}
+
+.drag-overlay.active { opacity: 1; pointer-events: auto; }
+
+.drag-overlay-text {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--accent);
+}
