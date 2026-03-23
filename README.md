@@ -2,6 +2,8 @@
 
 Media Downloader Directly off ae
 
+Currently not available for macos. update coming soon
+
 ## Preview
 
 <div style="display: flex; gap: 10px;">
